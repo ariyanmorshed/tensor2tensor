@@ -21,7 +21,6 @@ from __future__ import print_function
 import json
 import os
 import random
-import subprocess
 import numpy as np
 
 from tensor2tensor.utils import decoding
@@ -177,7 +176,6 @@ def create_run_config(master="",
     tpu_config = tf.contrib.tpu.TPUConfig(
         **tpu_config_kwargs)
     run_config_args["tpu_config"] = tpu_config
-    raise ValueError(subprocess.check_output('pip freeze && pip3 freeze'))
     if not master and "KUBE_GOOGLE_CLOUD_TPU_ENDPOINTS" in os.environ:
       # If running on TPU but no master is set and the KUBE env var is present
       # then we're running on ML Engine. Set the master.
